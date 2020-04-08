@@ -3,3 +3,8 @@
 
 <p><strong>Title:</strong><%=  @article.title %></p>
 <p><strong>Description:</strong><%= @article.description %></p>
+
+
+<%= link_to 'edit', edit_article_path(@article) %> |
+<%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "apagar ?"} %> |
+<%= link_to 'retur list', articles_path %>
