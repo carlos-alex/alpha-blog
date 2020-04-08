@@ -1,0 +1,34 @@
+<h1>Edit article</h1>
+
+<% if @article.errors.any? %>
+	<h2>Erros: </h2>
+	<ul>
+	  <% @article.errors.full_messages.each do |msg| %>
+			<li> <%= msg %>
+		<% end %>
+	</ul>
+<% end %>
+
+<!--
+a diferenca entre o save e o edit esta na form template id
+## --- form_with
+
+https://guides.rubyonrails.org/getting_started.html
+-->
+
+<%= form_with(model: @article, local: true) do |f| %>
+	<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :description %><br>
+		<%= f.text_area :description %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
