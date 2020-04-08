@@ -1,4 +1,13 @@
-<h1>cretae new article</h1>
+<h1>create a new article</h1>
+
+<% if @article.errors.any? %>
+	<h2>Erros: </h2>
+	<ul>
+	  <% @article.errors.full_messages.each do |msg| %>
+			<li> <%= msg %>
+		<% end %>
+	</ul>
+<% end %>
 
 
 <%= form_with scope: :article, url: articles_path,  local: true do |f| %>
@@ -14,7 +23,7 @@
 	</p>
 
 	<p>
-		<%= f.submit %>		
+		<%= f.submit %>
 	</p>
 
 <% end %>
